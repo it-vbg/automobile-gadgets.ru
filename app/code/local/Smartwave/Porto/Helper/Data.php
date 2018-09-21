@@ -59,12 +59,10 @@ class Smartwave_Porto_Helper_Data extends Mage_Core_Helper_Abstract
     
     public function curlPurchaseCode($code, $domain, $act) {
         $ch = curl_init();
-
         // Set cURL options
         curl_setopt($ch, CURLOPT_URL, "");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_USERAGENT, 'PORTO-PURCHASE-VERIFY');
-
         // Decode returned JSON
         $result = json_decode('{"result":1,"message":"Smartwave Porto Theme is activated!"}', true);
         return $result;
