@@ -3,28 +3,25 @@
     $code  = $store->getCode();
     $helper = Mage::helper("porto");
     $product_id = Mage::registry("current_product")->getId();
-	$product_name = Mage::registry("current_product")->getName();
-	
-	$tab_style = Mage::getStoreConfig("porto_settings/product_view/product_tab_style", $code);
+    $tab_style = Mage::getStoreConfig("porto_settings/product_view/product_tab_style", $code);
     if(!$tab_style)
         $tab_style = "horizontal";
+    $product_page_type = $this->helper('catalog/output')->productAttribute(Mage::registry("current_product"), Mage::registry("current_product")->getData('product_page_type'), 'product_page_type');
+    if(!$product_page_type)
+        $product_page_type = Mage::getStoreConfig("porto_settings/product_view/type",$code);
+    if($product_page_type == 'wide_grid')
+        $tab_style = "vertical";
 ?>
-
-
-
-
 <?php if($tab_style!="accordion"): ?>
 <div class="product-tabs <?php echo $tab_style; ?>">
     <ul>
         <?php $i = 0; ?>
         <?php foreach ($this->getTabs() as $_index => $_tab): ?>
-            <?php /*---------Remove additional tab from tab group и удаляем таб с отзывами----------------*/ ?>
-            <?php if($this->getChildHtml($_tab['alias']) && ($_tab['alias'] != "additional_tabbed") && ($_tab['alias'] != "review_tabbed")): ?>
+            <?php if($this->getChildHtml($_tab['alias'])): ?>
                 <li id="tab_<?php echo $_tab['alias'] ?>" class="<?php echo ($i==0)?' active first':''?>"><a href="#"><?php echo $_tab['title']?></a></li>
                 <?php $i++; ?>
             <?php endif; ?>
         <?php endforeach; ?>
-        
         <?php
             for($i=1;$i<=5;$i++){
                 $custom_tab = "attribute_tab_".$i;
@@ -45,7 +42,6 @@
                 }
             }
         ?>
-        <li id="tab_reviews"><a href="#">Отзывы</a></li>
     </ul>
     <?php if($tab_style=="horizontal"): ?>
     <div class="clearer"></div>
@@ -53,27 +49,12 @@
     <?php if($tab_style=="vertical"): ?>
     <div class="product-tab-content">
     <?php endif; ?>
-        <?php foreach ($this->getTabs() as $_index => $_tab): ?>
-        <?php /*----------Вывод только таба описания--------------*/ ?>
-        <?php if($this->getChildHtml($_tab['alias']) && ($_tab['alias'] == "description_tabbed")): ?>
-            <div class="tab-content" id="tab_<?php echo $_tab['alias'] ?>_contents"><?php echo $this->getChildHtml($_tab['alias']) ?>
-            <div><img width="800" height="350" style="display: block; margin-left: auto; margin-right: auto;" alt="automobile gadgets vigodno" src="images/opisanie/Vigodno/automobile-gadgets_vigodno.jpg"></div>            
-            </div>
-        <?php endif; ?>
-    <?php endforeach; ?>
-    
-    
-    
-    
     <?php foreach ($this->getTabs() as $_index => $_tab): ?>
-        <?php /*----------Remove additional div from tab groups и таб с отзывами и таб описания--------------*/ ?>
-        <?php if($this->getChildHtml($_tab['alias']) && ($_tab['alias'] != "additional_tabbed") && ($_tab['alias'] != "review_tabbed") && ($_tab['alias'] != "description_tabbed")): ?>
+        <?php if($this->getChildHtml($_tab['alias'])): ?>
             <div class="tab-content" id="tab_<?php echo $_tab['alias'] ?>_contents"><?php echo $this->getChildHtml($_tab['alias']) ?></div>
         <?php endif; ?>
     <?php endforeach; ?>
-    	
-	
-	<?php
+    <?php
         for($i=1;$i<=5;$i++){
             $custom_tab = "attribute_tab_".$i;
             if($helper->isEnabledTab("attribute", $custom_tab, $product_id)){
@@ -91,25 +72,55 @@
             <div class="tab-content" id="tab_<?php echo $custom_tab ?>_contents"><?php echo $helper->getTabContents("static_block", $custom_tab, $product_id)?></div>
     <?php
             }
-		}
+        }
     ?>
-    <div class="tab-content" id="tab_reviews_contents">
-        	<div type="lis-comments" lis-widget="reviews" data-id="<?php echo $product_id?>" data-title="<?php echo $product_name;?>"></div>
-     </div>
     <?php if($tab_style=="vertical"): ?>
     </div>
     <?php endif; ?>
-
     <script type="text/javascript">
     //<![CDATA[
+    <?php if($tab_style!="sticky"): ?>
     new Varien.Tabs('.product-tabs > ul');
+    <?php else: ?>
+    jQuery(function($){
+        var sticky_tabs;
+        var is_sticky = false;
+        $(".product-tabs > ul > li > a").attr("href","javascript:void(0)");
+        $(".product-tabs > ul > li > a").off("click").on("click", function(){
+            $("#"+$(this).parent().attr("id")+"_contents").scrollToMe();
+        });
+        $(window).scroll(function(){
+            if($(window).scrollTop() >= $(".product-tabs").offset().top){
+                if(!is_sticky){
+                    sticky_tabs = $(".product-tabs.sticky > ul").clone().detach();
+                    $(sticky_tabs).addClass("sticky-tab");
+                    $(".product-tabs.sticky").before('<div class="product-tabs-container"><div class="container"></div></div>');
+                    $(".product-tabs-container > .container").append(sticky_tabs);
+                    $(".sticky-tab > li > a").off("click").on("click", function(){
+                        $("#"+$(this).parent().attr("id")+"_contents").scrollToMe();
+                    });
+                    <?php if(Mage::getStoreConfig('porto_settings/header/sticky_header', $code)):?>
+                       $(".product-tabs-container").addClass("has-sticky-header");
+                    <?php endif; ?>
+                    <?php if(Mage::getStoreConfig('porto_settings/header/sticky_header_mobile', $code)):?>
+                       $(".product-tabs-container").addClass("has-mobile-sticky-header");
+                    <?php endif; ?>
+                    is_sticky = true;
+                }
+            } else {
+                $(".product-tabs-container").remove();
+                is_sticky = false;
+            }
+        });
+    });
+    <?php endif; ?>
     //]]>
     </script>
     <div class="clearer"></div>
 </div>
 <?php endif; ?>
 <?php if($tab_style=="accordion"): ?>
-<div class="panel-group product-tab-accordion" id="product_tab_accordion">
+<div class="product-tabs panel-group product-tab-accordion" id="product_tab_accordion">
 <?php $i = 0; ?>
 <?php foreach ($this->getTabs() as $_index => $_tab): ?>
     <?php if($this->getChildHtml($_tab['alias'])): ?>
@@ -119,7 +130,7 @@
                 <a data-toggle="collapse" data-parent="#product_tab_accordion" <?php if($i>0): ?>class="collapsed"<?php endif; ?> href="#tab_<?php echo $_tab['alias'] ?>"><?php echo $_tab['title']?></a>
             </h4>
         </div>
-        <div id="tab_<?php echo $_tab['alias'] ?>" class="panel-collapse collapse <?php if($i==0): ?>in<?php endif; ?>">
+        <div id="tab_<?php echo $_tab['alias'] ?>" class="panel-collapse collapse <?php if($i==0): ?>in show<?php endif; ?>">
             <div class="panel-body">
                 <?php echo $this->getChildHtml($_tab['alias']) ?>
             </div>

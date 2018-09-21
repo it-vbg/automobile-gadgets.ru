@@ -18,7 +18,7 @@ $ratio_height = Mage::getStoreConfig("porto_settings/category/ratio_height",$cod
 ?>
 <div class="category-products">
 	<div class="dailydeal-title">
-		<h2><?php echo $this->__('Горячие предложения'); ?></h2>
+		<h2><?php echo $this->__('Deal of the day'); ?></h2>
 	</div>
 <?php if(!$_productCollection->count()): ?>
 <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
@@ -52,7 +52,7 @@ $ratio_height = Mage::getStoreConfig("porto_settings/category/ratio_height",$cod
                         $base_url .= "quickview/index/view/";
                         $quickview_url = $base_url."id/".$_product->getId();
                         ?>
-                        <a href="<?php echo $quickview_url; ?>" class="quickview-icon"><i class="icon-export"></i><span><?php echo $this->__("Быстрый просмотр"); ?></span></a>
+                        <a href="<?php echo $quickview_url; ?>" class="quickview-icon"><i class="icon-export"></i><span><?php echo $this->__("Quick View"); ?></span></a>
                     <?php
                     }
                     ?>
@@ -83,6 +83,7 @@ $ratio_height = Mage::getStoreConfig("porto_settings/category/ratio_height",$cod
                             </div>
                             <div class="bottom-product-dailydeal bottom-home-dailydeal">
                                 <ul class="time-left">
+                                    <span><?php echo $this->__('Ends In:'); ?></span>
                                     <div class="timeleft timeleft_<?php echo $_product->getId() ?>"> </div>
                                 </ul>
                             </div>
@@ -127,7 +128,7 @@ $ratio_height = Mage::getStoreConfig("porto_settings/category/ratio_height",$cod
                     <?php       
                                 }
                             }
-                            }
+                        }
                         }
                     ?>
                     <?php

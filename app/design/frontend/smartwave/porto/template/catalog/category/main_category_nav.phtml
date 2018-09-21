@@ -5,8 +5,7 @@ $_category = Mage::getModel('catalog/category')->setStoreId($storeId);
 $_cat = $_category->load(Mage::app()->getStore()->getRootCategoryId());
 ?>
 <?php
-    function cmpCatPosition($a, $b)
-    {
+    function cmpMainCatPosition($a, $b) {
         if ($a->position == $b->position)
             return 0;
         return ($a->position > $b->position) ? 1 : -1;
@@ -20,7 +19,7 @@ $_cat = $_category->load(Mage::app()->getStore()->getRootCategoryId());
                 $children[] = $category;
             }
         }
-        usort($children, "cmpCatPosition");
+        usort($children, "cmpMainCatPosition");
         $content = '';
         $content .= '<li class="';
         if(!$children_ids[0])

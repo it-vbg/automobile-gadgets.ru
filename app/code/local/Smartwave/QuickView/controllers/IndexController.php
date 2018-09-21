@@ -12,7 +12,7 @@ class Smartwave_QuickView_IndexController extends Mage_Core_Controller_Front_Act
         Mage::dispatchEvent('catalog_controller_product_init_before', array('controller_action'=>$this));
         $categoryId = (int) $this->getRequest()->getParam('category', false);
         $productId  = (int) $this->getRequest()->getParam('id');
-                
+
         if (!$productId) {
             return false;
         }

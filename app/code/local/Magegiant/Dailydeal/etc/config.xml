@@ -38,7 +38,7 @@
                 <use>admin</use>
                 <args>
                     <module>Magegiant_Dailydeal</module>
-                    <frontName>dailydealadmin</frontName>
+                        <frontName>dailydealadmin</frontName>
                 </args>
             </dailydealadmin>
         </routers>

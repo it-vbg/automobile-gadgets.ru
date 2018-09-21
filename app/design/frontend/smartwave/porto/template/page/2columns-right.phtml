@@ -45,14 +45,15 @@
         <div class="main-container col2-right-layout">
             <div class="main container">
                 <div class="row">
-                    <div class="col-main col-sm-9">
+                    <div class="col-main col-lg-9">
                         <?php echo $this->getChildHtml('global_messages') ?>
                         <?php echo $this->getChildHtml('content') ?>
                     </div>
-                    <div class="col-right sidebar col-sm-3"><?php echo $this->getChildHtml('right') ?></div>
+                    <div class="col-right sidebar col-lg-3"><?php echo $this->getChildHtml('right') ?></div>
                 </div>
             </div>
         </div>
+        <?php echo $this->getChildHtml('bottomContainer') ?>
         <?php echo $this->getChildHtml('footer') ?>
         <?php echo $this->getChildHtml('global_cookie_notice') ?>
         <?php echo $this->getChildHtml('before_body_end') ?>

@@ -86,8 +86,8 @@
         <slider_width></slider_width>
         <slider_height>7</slider_height>
         <textbox>1</textbox>
-        <textBoxCss>border:solid 1px #eee; color: #a3a2a2; padding: 2px 5px; font-size: 13px; margin: 0 2px; width: 50px;</textBoxCss>
-        <goBtnText>НАЙТИ</goBtnText>
+        <textBoxCss>border:solid 1px #eee; color: #a3a2a2; padding: 2px 5px; font-size: 14px; margin: 0 2px; width: 50px;</textBoxCss>
+        <goBtnText>GO</goBtnText>
       </price_slider_conf>
       <ajax_conf>        
         <overlay_color>#fff</overlay_color>

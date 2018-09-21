@@ -2,21 +2,30 @@
 <config>
     <modules>
         <Smartwave_Porto>
-            <version>2.2.0</version>
+            <version>3.1.2</version>
         </Smartwave_Porto>
-    </modules>                   
+    </modules>
     <admin>
         <routers>
             <porto>
                 <use>admin</use>
                 <args>
                     <module>Smartwave_Porto</module>
-                    <frontName>porto</frontName>
+                        <frontName>porto</frontName>
                 </args>
             </porto>
         </routers>
     </admin>
     <frontend>
+		<routers>
+            <porto>
+                <use>standard</use>
+                <args>
+                    <frontName>swporto</frontName>
+                    <module>Smartwave_Porto</module>
+                </args>
+            </porto>
+        </routers>
         <translate>
             <modules>
                 <Smartwave_Porto>
@@ -36,6 +45,15 @@
 			</configurable>
 		</product>
     </frontend>
+	<adminhtml>
+        <layout>
+            <updates>
+                <porto module="Smartwave_Porto">
+                    <file>smartwave_porto.xml</file>
+                </porto>
+            </updates>
+        </layout>
+    </adminhtml>
     <global>
         <blocks>
             <porto>
@@ -129,6 +147,9 @@
             <general>
                 <notice_static_block>porto_custom_block_for_notice</notice_static_block>
             </general>
+            <optimization>
+                <lazyload>0</lazyload>
+            </optimization>
             <header>
                 <type>0</type>
                 <language_flag>1</language_flag>
@@ -173,7 +194,7 @@
                 <footer_bottom_enabled>1</footer_bottom_enabled>
                 <footer_logo>images/logo_footer.png</footer_logo>
                 <footer_bottom_socialicons>1</footer_bottom_socialicons>
-                <copyrights><![CDATA[&copy;Copyright 2015 by SW-THEMES. All Rights Reserved.]]></copyrights>
+                <copyrights><![CDATA[&copy;Copyright 2018 by Porto. All Rights Reserved.]]></copyrights>
                 <footer_bottom_custom_block>1</footer_bottom_custom_block>
                 <footer_bottom_custom_block_id>porto_footer_bottom_custom_block</footer_bottom_custom_block_id>
                 <footer_bottom_custom_block_id_2>porto_footer_bottom_custom_block</footer_bottom_custom_block_id_2>
@@ -204,6 +225,7 @@
                 <sale_label_text>Sale</sale_label_text>
             </product_label>
             <product_view>
+                <type>custom</type>
                 <aspect_ratio>1</aspect_ratio>
                 <ratio_width>600</ratio_width>
                 <ratio_height>800</ratio_height>
@@ -212,6 +234,7 @@
                 <next_text><![CDATA[<i class="icon-right-open"></i>]]></next_text>
                 <product_image_size>5</product_image_size>
                 <page_layout>two_column_right</page_layout>
+				<upsell_columns>4</upsell_columns>
             </product_view>
             <product_view_custom_tab>
                 <custom_tab>1</custom_tab>

@@ -1,6 +1,6 @@
 <?php
 /**
- Made by Smartwave.
+ Made by Porto.
  */
 ?>
 <?php
@@ -52,7 +52,7 @@ function beginNewsletterForm() {
             $.cookie('newsletter_popup', 'shown');
         },
         'tpl': { 
-            closeBtn: '<a title="Закрыть" class="fancybox-item fancybox-close fancybox-newsletter-close" href="javascript:;"></a>' 
+            closeBtn: '<a title="Close" class="fancybox-item fancybox-close fancybox-newsletter-close" href="javascript:;"></a>' 
         },
         'helpers': {
             overlay: {
@@ -102,7 +102,7 @@ function beginNewsletterForm() {
             <?php echo $popup['newsletter_content']; ?>
             <div class="input-box">
                 <input type="text" name="email" id="newsletter_popup_email" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email" placeholder="<?php echo $this->__("Email Address"); ?>" />
-                <button type="submit" title="<?php echo $this->__('Go!') ?>" class="button"><span><span><?php echo $this->__('Да!') ?></span></span></button>
+                <button type="submit" title="<?php echo $this->__('Go!') ?>" class="button"><span><span><?php echo $this->__('Go!') ?></span></span></button>
                 <div class="clearer"></div>
             </div>
         </div>
@@ -117,6 +117,6 @@ function beginNewsletterForm() {
     </script>
     <div class="subscribe-bottom">
         <input type="checkbox" id="newsletter_popup_dont_show_again"/>
-        <label for="newsletter_popup_dont_show_again"><?php echo $this->__("Не показывать мне это окно снова"); ?></label>
+        <label for="newsletter_popup_dont_show_again"><?php echo $this->__("Don't show this popup again"); ?></label>
     </div>
 </div>
