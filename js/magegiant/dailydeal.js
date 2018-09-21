@@ -101,27 +101,48 @@ DailydealTimeCounter.prototype = {
             mnth = (mnth + 12) % 12;
             yr--;
         }
-        var sectext = "сек";
-        var mintext = "мин";
-        var hrtext = "час";
-        var dytext = " дней ";
-        var mnthtext = " мес ";
+        var sectext = "";
+        var mintext = ":";
+        var hrtext = ":";
+        var dytext = " дней, ";
+        var mnthtext = " мес. ";
         var yrtext = " лет ";
         if (yr == 1)
-            yrtext = " лет ";
+            yrtext = " год ";
         if (mnth == 1)
-            mnthtext = " мес ";
+            mnthtext = " мес. ";
         if (dy == 1)
-            dytext = " дней ";
+            dytext = " день, ";
         if (hr == 1)
-            hrtext = "час";
+            hrtext = ":";
         if (min == 1)
-            mintext = "мин";
+            mintext = ":";
         if (sec == 1)
+            sectext = "";
+        if(jQuery("body").hasClass("catalog-product-view")) {
             sectext = "сек";
-
+            mintext = "мин";
+            hrtext = "час";
+            dytext = "дней";
+            mnthtext = "мес.";
+            yrtext = "лет";
+            if (yr == 1)
+                yrtext = "год";
+            if (mnth == 1)
+                mnthtext = "мес";
+            if (dy == 1)
+                dytext = "день";
+            if (hr == 1)
+                hrtext = "час";
+            if (min == 1)
+                mintext = "мин";
+            if (sec == 1)
+                sectext = "сек";
+        }
+/*
         if (dy < 10)
             dy = '0' + dy;
+*/
         if (hr < 10)
             hr = '0' + hr;
         if (min < 10)
