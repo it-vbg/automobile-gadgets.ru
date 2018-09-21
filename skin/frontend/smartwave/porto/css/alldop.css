@@ -1,0 +1,15 @@
+/*Блог*/
+.blog-detail { color:#000000;}
+.blog-detail li:before {
+ font-weight: 900;
+ color: #215881;
+ content: "•";
+ padding-right: 7px;
+}
+.blog-detail li { padding-bottom:5px;}
+/*Категории*/
+.category-products .short-desc { color:#000000 !important;}
+
+ul.options-list {
+  min-width: 300px;
+}

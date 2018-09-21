@@ -1,0 +1,168 @@
+/*Типографика*/
+.postContent h2 {
+    margin: 0 auto;
+    font-size: 24px;
+}
+.postContent h3 {
+    font-size: 20px;
+}
+.postContent h3,.postContent h2 {
+    font-family: 'Merriweather', serif;
+    letter-spacing: 1px;
+    max-width: 320px;
+    width: 100%;
+    position: relative;
+    color: #465457;
+}
+.header1 h3,.header1 h2 {
+    text-align: center;
+    padding-bottom: 10px;
+}
+.header1 h3:after,.header1 h2:after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    margin-left: -15%;
+    width: 30%;
+    height: 2px;
+    background: #215881;
+}
+.header2 h3 {
+    padding: 0 0 6px 10px;
+    border-left: 10px solid #215881;
+    border-bottom: 2px solid #215881;
+}
+.header3 h3 {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #E5EDEA;
+}
+.header3 h3:after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 30%;
+    height: 4px;
+    background: #215881;
+}
+hr {
+    border : 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+/*Конец типографики*/
+.big-item  .product-name{
+    font-size:16px;
+    font-weight:bold;
+}
+.big-item .rating-box{
+    float:left;
+}
+.big-item .price-box{
+    float:right;
+    margin-top:0px;
+}
+.header-contact-inf {
+    background: url("../images/phone.svg") no-repeat 0% 50%;
+    background-size: auto auto;
+    background-size: auto 50px;
+    padding: 0 0 0 50px;
+    color: rgb(51, 55, 69);
+    width: 240px;
+    margin: -10px auto 0;
+}
+.header-contact-text {color: gray; font-size: 16px;}
+span.header-contact-phone a {color: #215881 !important; font-weight: bold; font-size: 14px !important;}
+#tab_description_tabbed_contents, .category-description, .blog-detail {
+    color: black;
+    font-size: medium;
+    text-align: justify;
+}
+#tab_description_tabbed_contents div, #tab_description_tabbed_contents p, .category-description p{
+    margin-bottom: 10px;
+}
+#tab_description_tabbed_contents ul > li, .category-description ul > li, .blog-detail ul > li {
+    list-style-type: none;
+    position: relative;
+    margin-left: 40px;
+}
+#tab_description_tabbed_contents ul > li::before, .category-description ul > li::before, .blog-detail ul > li::before {
+    background: #215881 none repeat scroll 0 0;
+    content: "";
+    height: 12px;
+    left: -28px;
+    position: absolute;
+    top: 5px;
+    width: 12px;
+}
+
+.product-big-view .product-shop{border:1px solid #ddd; padding:7px; border-radius:7px;}
+
+.data-table tbody th, .data-table tbody td{
+    padding:7px 10px;
+     white-space: nowrap;
+}
+.data-table tbody th.label{
+
+}
+#product-attribute-specs-table th.label{
+
+}
+.custom-block-payment{
+    margin-bottom:40px;
+}
+
+.custom-block-payment  h3{
+    text-transform:uppercase;
+    color:#000;
+}
+
+.custom-block-payment .icon-pay{
+    width:100%;
+    height:80px;
+    display:inline-block;
+
+    background-repeat:no-repeat;
+    background-position:top center;
+    background-size: contain;
+}
+.custom-block-payment span{
+    display:block;
+    font-weight:bold;
+    text-align:center;
+    margin:0px;
+    color: #000;
+    font-size:12px;
+    text-transform: uppercase;
+}
+
+.custom-block-payment .icon-pay.pay1{
+    background-image:url('../images/payment3.jpg');
+}
+.custom-block-payment .icon-pay.pay2{
+    background-image:url('../images/payment4.jpg');
+}
+
+.custom-block-payment .icon-pay.pay3{
+    background-image:url('../images/payment1.jpg');
+}
+.custom-block-payment .icon-pay.pay4{
+    background-image:url('../images/payment2.jpg');
+}
+.custom-block-payment .icon-pay.pay3{
+    background-image:url('../images/payment1.jpg');
+}
+.custom-block-payment .icon-pay.pay5{
+    background-image:url('../images/payment5.png');
+}
+.custom-block-payment .icon-pay.pay6{
+    background-image:url('../images/payment6.jpg');
+}
+.custom-block.yandex-market{
+    text-align:center;
+}
+h1.blog-title {color: #215881}
+.postContent {color: black;}
+.postContent p, .postContent li {text-align: justify;}

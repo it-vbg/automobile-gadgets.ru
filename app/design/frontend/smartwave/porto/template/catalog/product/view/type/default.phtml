@@ -1,0 +1,9 @@
+<?php $_product = $this->getProduct() ?>
+<?php if ($_product->isAvailable()): ?>
+    <p class="availability pull-right in-stock"><span class='label'><span class='glyphicon glyphicon-ok'> </span>&nbsp;<?php echo $this->__('In stock') ?></span></p>
+<?php else: ?>
+    <p class="availability pull-right out-of-stock"><span class='label'><span class='glyphicon glyphicon-remove'> </span>&nbsp;<?php echo $this->__('Out of stock') ?></span></p>
+<?php endif; ?>
+<?php echo $this->getPriceHtml($_product) ?>
+
+<?php echo $this->getChildHtml('product_type_data_extra') ?>

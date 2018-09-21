@@ -1,0 +1,18 @@
+<?php
+$store = Mage::app()->getStore();
+$code  = $store->getCode();
+    $_enable = Mage::getStoreConfig('porto_settings/contacts/enable', $code);
+    if($_enable){        
+?>
+<?php
+    if(Mage::getStoreConfig("porto_settings/header/type",$code) == "10"){
+?>
+<div class="page-header">&nbsp;</div>
+<?php
+    }
+?>
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A38fc549660b74fb91dd35d06473485173d748b2408b118858190ece5bbf3aa05&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+
+<?php
+    }
+?>

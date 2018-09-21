@@ -1,0 +1,20 @@
+<div id="onestepcheckout-payment-methods">
+<?php if (!count($this->getFilterPaymentMethods())): ?>
+    <p class="empty-methods sp-methods" id="checkout-payment-method-load"><?php echo $this->getEmptyText(); ?></p>
+<?php else: ?>
+<div class="sp-methods" id="checkout-payment-method-load">
+<?php foreach ($this->getFilterPaymentMethods() as $_method): $_code = $_method->getCode() ?>
+    <div id="<?php echo $_code."-method";?>" class="onestepcheckout-method-color">
+        <input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" <?php if($this->getSelectedMethodCode()==$_code): ?> checked="checked"<?php endif; ?> class="radio" />
+        <label for="p_method_<?php echo $_code ?>"><?php echo $this->getMethodTitle($_method) ?> <?php echo $this->getMethodLabelAfterHtml($_method) ?></label>
+        <?php $html = $this->getPaymentMethodFormHtml($_method);?>
+        <?php if ($html): ?>
+        <div class="payment-html">
+            <?php echo $html; ?>
+        </div>
+        <?php endif; ?>
+    </div>
+<?php endforeach; ?>
+</div>
+<?php endif;?>
+</div>

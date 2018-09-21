@@ -1,0 +1,16 @@
+<div id="onestepcheckout-customer-address">
+<?php foreach ($this->getOptions() as $option):?>
+    <div class="onestepcheckout-customer-address-title">
+        <input id="adress_<?php echo $option['value']?>" value="<?php echo $option['value']?>" type="radio" name="billing_address_id" class="radio" <?php if($option['value'] == $this->getValue()):?>checked="checked"<?php endif;?> />
+        <label for="adress_<?php echo $option['value']?>"><?php echo $option['name']?></label>
+        <div class="onestepcheckout-customer-address-address">
+            <?php echo $option['label']?>
+        </div>
+    </div>
+<?php endforeach;?>
+     <div class="onestepcheckout-customer-address-title">
+        <input value="" id="adress_new" type="radio" name="billing_address_id" class="radio" />
+        <label for="adress_new"><?php echo $this->__('New address'); ?></label>
+        <div class="onestepcheckout-customer-address-address"></div>
+    </div>
+</div>

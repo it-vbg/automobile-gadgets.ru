@@ -1,0 +1,12 @@
+<li class="<?php echo $this->getClassValue('region')?> <?php if(!$this->hasAddressField('region')) :?>no-display<?php endif;?>">
+       <div class="field">
+        <label for="billing-region_id" class="for-required"><?php echo $this->__('State/Province') ?><em>*</em></label>
+        <div class="input-box input-box-select">
+            <select data-placeholder="<?php echo $this->__('Please select region, state or province') ?>" autocomplete="off" id="billing-region_id" name="billing[region_id]" data-error="<?php echo $this->__('Please enter the state/province.');?>" title="<?php echo $this->__('State/Province') ?>" class="validate-select for-required chzn-select region-id-chzn" style="display:none;">
+            </select>
+        </div>
+        <div class="input-box">
+            <input type="text" id="billing-region" name="billing[region]" data-error="<?php echo $this->__('Please enter the state/province.');?>" value="<?php echo $this->htmlEscape($this->getAddress()->getRegion()) ?>"  title="<?php echo $this->__('State/Province') ?>" class="input-text for-required" style="display:none;" />
+        </div>
+    </div>
+</li>

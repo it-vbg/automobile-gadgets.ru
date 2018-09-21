@@ -1,0 +1,10 @@
+<?php if($this->hasAddressField('city')) :?>
+    <li class="<?php echo $this->getClassValue('city')?>">
+      <div class="field">
+          <label for="billing-city" class="for-required"><?php echo $this->__('City') ?><em>*</em></label>
+          <div class="input-box">
+              <input type="text" id="billing-city" name="billing[city]" data-error="<?php echo $this->__('Please enter the city.');?>" value="<?php echo $this->htmlEscape($this->getAddress()->getCity());?>" title="<?php echo $this->__('City') ?>" class="input-text for-required" />
+          </div>
+      </div>
+    </li>
+<?php endif;?>

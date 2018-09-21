@@ -1,0 +1,49 @@
+ <div class="order-review-footer">
+ <div class="col-wrapper">
+    <div class="onestepcheckout-title listing-title">
+        <h2><?php echo $this->__('Обзор заказа');?></h2>
+     </div>
+     <div class="onestepcheckout-review-div">
+         <table id="shopping-cart-table" class="data-table cart-table onestepcheckout-review-table">
+            <col />
+        <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+            <col width="1" />
+        <?php endif; ?>
+        <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+            <col width="1" />
+        <?php endif; ?>
+            <col width="1" />
+        <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+            <col width="1" />
+        <?php endif; ?>
+        <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+            <col width="1" />
+        <?php endif; ?>
+
+        <?php $mergedCells = ($this->helper('tax')->displayCartBothPrices() ? 2 : 1); ?>
+            <thead>
+                <tr>
+                    <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->helper('checkout')->__('Product Name') ?></span></th>
+                    <th class="a-center" colspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->helper('checkout')->__('Unit Price') ?></span></th>
+                    <th rowspan="<?php echo $mergedCells; ?>" class="a-center"><?php echo $this->helper('checkout')->__('Qty') ?></th>
+                    <th class="a-center" colspan="<?php echo $mergedCells; ?>"><?php echo $this->helper('checkout')->__('Subtotal') ?></th>
+                </tr>
+                <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+                <tr>
+                    <th class="a-right"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                    <th><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                    <th class="a-right"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                    <th><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                </tr>
+                <?php endif; ?>
+            </thead>
+            <tbody>
+            <?php foreach($this->getItems() as $_item): ?>
+                <?php echo $this->getItemHtml($_item) ?>
+            <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
+    <div class="clearer"></div>
+    </div>
+</div>
