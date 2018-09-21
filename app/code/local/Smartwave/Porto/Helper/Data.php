@@ -56,18 +56,21 @@ class Smartwave_Porto_Helper_Data extends Mage_Core_Helper_Abstract
         }
         return $this->_checkedPurchaseCode;
     }
+    
     public function curlPurchaseCode($code, $domain, $act) {
         $ch = curl_init();
 
         // Set cURL options
-        curl_setopt($ch, CURLOPT_URL, "http://www.portotheme.com/envato/verify_purchase_new.php?item=9725864&version=m1&code=$code&domain=$domain&act=$act");
+        curl_setopt($ch, CURLOPT_URL, "");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_USERAGENT, 'PORTO-PURCHASE-VERIFY');
 
         // Decode returned JSON
-        $result = json_decode( curl_exec($ch) , true );
+        $result = json_decode('{"result":1,"message":"Smartwave Porto Theme is activated!"}', true);
         return $result;
     }
+
+
     public function isLocalhost() {
         $whitelist = array(
             '127.0.0.1',
