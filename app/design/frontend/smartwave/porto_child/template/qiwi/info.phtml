@@ -1,0 +1,14 @@
+<p>
+    <?php echo $this->getPayMethod() ?>
+</p>
+<?php 
+$link = $this->getPayUrl();
+if ($link) : ?>
+    <p>
+    <?php if($this->getReady()):?>
+        <a href="<?php echo $link; ?>" target=_blank ><?php echo $this->__('payment link'); ?></a>
+    <?php else :?>
+        <span style="color: #333333;"><?php echo $this->__('ready payment'); ?></span>
+    <?php endif;?>
+    </p>
+<?php endif;?>

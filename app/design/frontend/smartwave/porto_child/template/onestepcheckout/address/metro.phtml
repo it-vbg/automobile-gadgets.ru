@@ -1,0 +1,10 @@
+<?php if($this->hasAddressField('metro')) :?>
+    <li class="<?php echo $this->getClassValue('metro')?>">
+      <div class="field">
+          <label for="billing-metro" class="for-required"><?php echo $this->__('Metro') ?><em>*</em></label>
+          <div class="input-box input-box-select">
+              <?php echo $this->getMetroHtmlSelect(); ?>
+          </div>
+      </div>
+    </li>
+<?php endif;?>

@@ -1,0 +1,17 @@
+<?php if(($this->getPrintUrl() || $this->getPdfUrl()) && $this->isPaymentsLink()):?>
+        <?php if($this->getReady()):?>
+            <?php if ($this->getPrintUrl()) : ?>
+                <p><a href="<?php echo $this->getPrintUrl(); ?>" target=_blank ><?php echo $this->__('invoicebank_link'); ?></a></p>
+            <?php endif;?>
+            <?php if ($this->getPdfUrl()) : ?>
+                <p><a href="<?php echo $this->getPdfUrl(); ?>"><?php echo $this->__('invoicebank_pdf_link'); ?></a></p>
+            <?php endif;?>
+            <?php if($this->getRekvizit()) :?>
+            	<p>
+            		<?php echo nl2br($this->getRekvizit()); ?>
+            	</p>
+            <?php endif;?>	
+            <?php else :?>
+                <h4 style="color: #333333;"><?php echo $this->__('ready payment'); ?></h4>
+        <?php endif;?>
+<?php endif;?>

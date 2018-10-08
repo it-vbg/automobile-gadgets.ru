@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) <2016>, <Rugento.ru>
+ * License URL http://www.rugento.ru/oferta.html
+ * Support URL http://support.rugento.ru
+ * Support EMAIL support@rugento.ru
+ */
+-->
+<layout version="0.1.0">
+<yandexmoneypurse_merchant_success>
+		<reference name="root">
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+        </reference> 
+    <reference name="content">
+            <block type="yandexmoneypurse/success" name="yandexmoneypurse.success" template="yandexmoneypurse/success.phtml"/>
+    </reference>
+</yandexmoneypurse_merchant_success>
+<yandexmoneypurse_merchant_fail>
+		<reference name="root">
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+        </reference> 
+    <reference name="content">
+            <block type="yandexmoneypurse/fail" name="yandexmoneypurse.fail" template="yandexmoneypurse/fail.phtml"/>
+    </reference>
+</yandexmoneypurse_merchant_fail>
+<yandexmoneypurse_merchant_ready>
+		<reference name="root">
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+        </reference> 
+    <reference name="content">
+            <block type="yandexmoneypurse/fail" name="yandexmoneypurse.ready" template="yandexmoneypurse/ready.phtml"/>
+    </reference>
+</yandexmoneypurse_merchant_ready>
+<checkout_onepage_success>
+	<reference name="content">
+		<block type="yandexmoneypurse/link" name="yandexmoneypurse.link" as="yandexmoneypurse_link"/>
+	</reference>
+</checkout_onepage_success>
+</layout>
