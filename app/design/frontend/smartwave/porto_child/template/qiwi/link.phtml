@@ -1,7 +1,0 @@
-<?php if ($this->isPaymentsLink()) : ?>
-    <?php if($this->getReady()):?>
-            <h4><a href="<?php echo $this->getInvoiceUrl(); ?>" target=_blank ><?php echo $this->__('payment link'); ?></a></h4>
-    <?php else :?>
-            <h4 style="color: #333333;"><?php echo $this->__('Your order is not confirmed by the manager'); ?></h4>
-    <?php endif;?>
-<?php endif;?>

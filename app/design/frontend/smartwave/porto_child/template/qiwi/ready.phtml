@@ -1,6 +1,0 @@
-<div class="page-title">
-    <h1><?php echo $this->__('Your order is not confirmed by the manager') ?></h1>
-</div>
-<?php if ($this->getRealOrderId()) : ?><p><?php echo $this->__('Order #') . $this->getRealOrderId() ?></p><?php endif ?>
-<h2 class="sub-title"><?php echo $this->__('Please wait for confirmation of your order manager. After confirming the availability of goods in stock you will be notified by email!') ?></h2>
-<p><?php echo $this->__('Click <a href="%s">here</a> to continue shopping.', $this->getContinueShoppingUrl()) ?></p>
